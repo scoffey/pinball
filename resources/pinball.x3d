@@ -1,0 +1,1223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE X3D PUBLIC "ISO//Web3D//DTD X3D 3.0//EN" 
+	"http://www.web3d.org/specifications/x3d-3.0.dtd">
+<X3D profile="Immersive" version="3.0"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema-instance"
+	xsd:noNamespaceSchemaLocation="http://www.web3d.org/specifications/x3d-3.0.xsd">
+	<head>
+		<meta content="ITBA Pinball" name="title" />
+		<meta content="Descripcion de la escena del juego de pinball desarrollado como TP Final de Computacion Grafica"
+			name="description" />
+		<meta content="Bigio, Coffey, Gregoire" name="editors" />
+		<meta content="Julio 2008" name="created" />
+		<meta content="Julio 2008" name="modified" />
+	</head>
+	<Scene>
+		<Viewpoint orientation="1 0 0 -0.36" position="0.020092139 1.9646039 1.2954552" fieldOfView="0.6" /> 
+		<PointLight location="0 1.5 0" color="1 1 1" intensity="1" on="true" />
+
+
+		<!-- Pelota -->
+		<!-- <Transform translation="0.278 1.01 -1">  -->
+			<Transform translation="0.278 1.005 -1">
+				<!--	<Transform translation="0.058 1 -.7"> -->
+			<Shape>
+				<Sphere radius="0.01">
+					<MetadataSet>
+						<MetadataString name="type" value="ball" containerField="value" />
+					</MetadataSet>
+				</Sphere>
+				<Appearance>
+					<Material diffuseColor="0.9 0.9 0.9" />
+				</Appearance>
+			</Shape>
+		</Transform>
+
+		<Transform>
+		<!-- Pinball: Esta es la mesa de pinball con todos los elementos.
+		     Las unidades dentro de este nodo están expresadas en cm. El scale es
+		     de 0.01 para convertirlo a metros. -->
+		<Transform rotation="1 0 0 0.113446" translation="0 1 -1"
+			scale="0.01 0.01 0.01">
+
+			<!-- Mesa -->
+			<Transform translation="0 -1 0">
+				<Shape>
+					<Box size="60 2 140">
+						<MetadataSet>
+							<MetadataString name="type" value="table"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.4 0.4 0.9" />
+					</Appearance>
+				</Shape>
+			</Transform>
+			
+			<!-- Textura de la mesa -->
+		<Transform scale="60 2 140" translation="-30 0.01 -70">
+			<Shape>
+				<TriangleSet solid="false" ccw="false" containerField="geometry">
+					<Coordinate point="0 0 0  1 0 0  0 0 1  1 0 0  1 0 1  0 0 1" />
+					<TextureCoordinate point="0 1  1 1  0 0  1 1  1 0  0 0" />
+				</TriangleSet>
+				<Appearance>
+					<ImageTexture url="abstract2.jpg" repeatS="true" repeatT="true"/>
+				</Appearance>
+			</Shape>
+		</Transform>
+
+
+
+			<!-- Flipper izquierdo -->
+			<Transform translation="-12 1 59" rotation="0 1 0 -0.4">
+				<Shape>
+					<Box size="8 3 1">
+						<MetadataSet>
+							<MetadataString name="type" value="lflipper"
+								containerField="value" />
+							<MetadataFloat name="center" value="-4 0"
+								containerField="value" />
+							<MetadataString name="sound-up" value="flipper.wav" 
+								containerField="value" />
+							<MetadataString name="sound-down" value="flipper.wav" 
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="1 1 1" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Flipper derecho -->
+			<Transform translation="9 1 59" rotation="0 1 0 0.4">
+				<Shape>
+					<Box size="8 3 1">
+						<MetadataSet>
+							<MetadataString name="type" value="rflipper"
+								containerField="value" />
+							<MetadataFloat name="center" value="4 0"
+								containerField="value" />
+							<MetadataString name="sound-up" value="flipper.wav" 
+								containerField="value" />
+							<MetadataString name="sound-down" value="flipper.wav" 
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="1 1 1" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Pared 1 cont. flipper izquierdo -->
+			<Transform translation="-18 1.5 55" rotation="0 1 0 -0.6">
+				<Shape>
+					<Box size="15 3 1">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Pared 2 cont. flipper izquierdo -->
+			<Transform translation="-24 1.5 43.5" rotation="0 1 0 0">
+				<Shape>
+					<Box size="1 3 15">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Pared 1 cont. flipper derecho -->
+			<Transform translation="15 1.5 55" rotation="0 1 0 0.6">
+				<Shape>
+					<Box size="15 3 1">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Pared 2 cont. flipper derecho -->
+			<Transform translation="21 1.5 43.5" rotation="0 1 0 0">
+				<Shape>
+					<Box size="1 3 15">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Plunger -->
+			<Transform translation="28 1.5 45" rotation="0 1 0 0">
+				<Shape>
+					<Box size="4 3 7">
+						<MetadataSet>
+							<MetadataString name="type" value="plunger"
+								containerField="value" />
+							<MetadataString name="sound-throw" value="plunger.wav"
+								containerField="value" />
+							
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0 1 1" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Pared del plunger -->
+			<Transform translation="26 2 20" rotation="0 1 0 0">
+				<Shape>
+					<Box size="1 4 100">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+
+			<!-- Pared lateral izquierda -->
+			<Transform translation="-30.1 3.5 0" rotation="0 1 0 0">
+				<Shape>
+					<Box size="2.2 7 140">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.2 0.2 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Pared lateral derecha -->
+			<Transform translation="30.1 3.5 0" rotation="0 1 0 0">
+				<Shape>
+					<Box size="2.2 7 140">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.2 0.2 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Pared posterior -->
+			<Transform translation="0 3.5 -70" rotation="0 1 0 0">
+				<Shape>
+					<Box size="60 7 2">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.2 0.2 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Pared anterior (la que hace perder) -->
+			<Transform translation="0 3.5 70" rotation="0 1 0 0">
+				<Shape>
+					<Box size="60 7 2">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+							<MetadataString name="gameover" value="true"
+								containerField="value" />
+							<MetadataString name="sound-collision" value="gameover.wav"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.2 0.2 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Tapa pared anterior-->
+			<Transform translation="0 4.5 68" rotation="0 1 0 0">
+				<Shape>
+					<Box size="60 1 5">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+			
+			<Transform translation="1 1.5 -44">
+				<Shape>
+					<Box size="2 3 5">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+			<Transform translation="14 1.5 -44">
+				<Shape>
+					<Box size="2 3 5">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+			<Transform translation="23 2 -36" rotation="0 1 0 2">
+				<Shape>
+					<Box size="14 4 1">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Spinner -->
+			<Transform translation="4 1.5 5">
+				<Shape>
+					<Box size="9 4 3">
+						<MetadataSet>
+							<MetadataString name="type" value="carousell"
+								containerField="value" />
+							<MetadataFloat name="speed" value="0.01"
+								containerField="value" />
+							<MetadataFloat name="score" value="10"
+								containerField="value" />
+							<MetadataString name="sound-collision" value="bumper1.wav"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.3 1 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Bumper de mas de abajo -->
+			<Transform translation="6 1.5 -11">
+				<Shape>
+					<Cylinder height="3" radius="3">
+						<MetadataSet>
+							<MetadataString name="type" value="bumper"
+								containerField="value" />
+							<MetadataFloat name="intensity" value="0.3"
+								containerField="value" />
+							<MetadataFloat name="score" value="100"
+								containerField="value" />
+							<MetadataString name="sound-collision" value="bumper1.wav"
+								containerField="value" />
+						</MetadataSet>
+					</Cylinder>
+					<Appearance>
+						<Material diffuseColor="0.7 0.3 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>	
+
+			<!-- Bumper -->
+			<Transform translation="-4 1.5 -24">
+				<Shape>
+					<Cylinder height="3" radius="3">
+						<MetadataSet>
+							<MetadataString name="type" value="bumper"
+								containerField="value" />
+							<MetadataFloat name="intensity" value="0.3"
+								containerField="value" />
+							<MetadataFloat name="score" value="100"
+								containerField="value" />
+							<MetadataString name="sound-collision" value="bumper1.wav"
+								containerField="value" />
+						</MetadataSet>
+					</Cylinder>
+					<Appearance>
+						<Material diffuseColor="0.3 0.8 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Bumper -->
+			<Transform translation="16 1.5 -24">
+				<Shape>
+					<Cylinder height="3" radius="3">
+						<MetadataSet>
+							<MetadataString name="type" value="bumper"
+								containerField="value" />
+							<MetadataFloat name="intensity" value="0.3"
+								containerField="value" />
+							<MetadataFloat name="score" value="100"
+								containerField="value" />
+							<MetadataString name="sound-collision" value="bumper1.wav"
+								containerField="value" />
+						</MetadataSet>
+					</Cylinder>
+					<Appearance>
+						<Material diffuseColor="0.3 0.3 0.9" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- One Way Path -->
+				<Transform translation="24.5 1.5 -43">
+				<Shape>
+					<Box size="10 5 2.5">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+							<MetadataString name="oneWayPath" value="true"
+								containerField="value" />
+							<MetadataString name="sound-collision" value="bumper1.wav"
+								containerField="value" />
+							<MetadataFloat name="score" value="5"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.5 0.5 0.5" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Pared triangular central izquierda -->
+			<Transform scale="1 1 1" translation="-29 0 10">
+				<Shape>
+					<TriangleSet solid="false" ccw="false"
+						containerField="geometry">
+						<Coordinate
+							point="0 0 9   0 0 -24  12 0 0  0 3 9   12 3 0  0 3 -24 
+							12 0 0   0 3 9  0 0 9  0 3 9  12 0 0   12 3 0 
+							0 0 9  0 3 9  0 0 -24  0 3 9  0 3 -24   0 0 -24 
+							12 0 0  0 0 -24 12 3 0  12 3 0   0 0 -24  0 3 -24 " />
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</TriangleSet>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+
+			<!-- Pared triangular central derecha -->
+			<Transform scale="1 1 1" translation="26 0 10">
+				<Shape>
+					<TriangleSet solid="false" ccw="false"
+						containerField="geometry">
+						<Coordinate
+							point="0 0 9   -12 0 0  0 0 -24  
+							 0 3 9   0 3 -24  -12 3 0  
+							-12 0 0   0 0 9   0 3 9 
+							 0 3 9    -12 3 0 -12 0 0  
+							0 0 9   0 0 -24 0 3 9   
+							0 3 9   0 0 -24 0 3 -24   
+							-12 0 0 -12 3 0 0 0 -24   
+							-12 3 0   0 3 -24 0 0 -24  " />
+						<!--<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet> -->
+					</TriangleSet>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Bumper rectangular izquierdo superior -->
+			<Transform scale="1 1 1" translation="-11 2 -7" rotation="0 1 0 1.98">
+				<Shape>
+					<Box size="22 4 2.5">
+						<MetadataSet>
+							<MetadataString name="type" value="bumper"
+								containerField="value" />
+							<MetadataFloat name="score" value="100"
+								containerField="value" />
+							<MetadataFloat name="intensity" value="0.3"
+								containerField="value" />
+							<MetadataString name="sound-collision" value="bumper1.wav"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.3 0.3 1" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+
+
+			<!-- PinballStatefullWall de mas de arriba -->
+			<Transform scale="1 1 1" translation="-11.72 2 -38" rotation="0 1 0 1.35">
+				<Shape>
+					<Box size="5 4 1">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+							<MetadataString name="statefull" value="true"
+								containerField="value" />
+							<MetadataFloat name="score" value="15"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="1 1 1" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- PinballStatefullWall del medio -->
+			<Transform scale="1 1 1" translation="-13.4 2 -31" rotation="0 1 0 1.35">
+				<Shape>
+					<Box size="5 4 1">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+							<MetadataString name="statefull" value="true"
+								containerField="value" />
+							<MetadataFloat name="score" value="15"
+								containerField="value" />
+
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="1 1 1" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- PinballStatefullWall de mas abajo -->
+			<Transform scale="1 1 1" translation="-15.08 2 -24" rotation="0 1 0 1.35">
+				<Shape>
+					<Box size="5 4 1">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+							<MetadataString name="statefull" value="true"
+								containerField="value" />
+							<MetadataFloat name="score" value="15"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.3 0.3 1" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Floor lights  
+<Transform translation="6.0 0.04 45.0"><Shape><Cylinder height="0.03" radius="1"><MetadataSet><MetadataString name="type" value="floorlight" containerField="value" /><MetadataFloat name="period" value="0.2" containerField="value" /><MetadataFloat name="phase" value="0.0" containerField="value" /><MetadataFloat name="initialColor" value="1 0 0" containerField="value" /><MetadataFloat name="finalColor" value="1 1 0" containerField="value" /></MetadataSet></Cylinder><Appearance><Material diffuseColor="0 0 0" /></Appearance> </Shape> </Transform>
+<Transform translation="5.6084523 0.04 47.472137"><Shape><Cylinder height="0.03" radius="1"><MetadataSet><MetadataString name="type" value="floorlight" containerField="value" /><MetadataFloat name="period" value="0.2" containerField="value" /><MetadataFloat name="phase" value="0.09090909" containerField="value" /><MetadataFloat name="initialColor" value="1 0 0" containerField="value" /><MetadataFloat name="finalColor" value="1 1 0" containerField="value" /></MetadataSet></Cylinder><Appearance><Material diffuseColor="0 0 0" /></Appearance> </Shape> </Transform>
+<Transform translation="4.472136 0.04 49.702282"><Shape><Cylinder height="0.03" radius="1"><MetadataSet><MetadataString name="type" value="floorlight" containerField="value" /><MetadataFloat name="period" value="0.2" containerField="value" /><MetadataFloat name="phase" value="0.18181819" containerField="value" /><MetadataFloat name="initialColor" value="1 0 0" containerField="value" /><MetadataFloat name="finalColor" value="1 1 0" containerField="value" /></MetadataSet></Cylinder><Appearance><Material diffuseColor="0 0 0" /></Appearance> </Shape> </Transform>
+<Transform translation="2.702282 0.04 51.472137"><Shape><Cylinder height="0.03" radius="1"><MetadataSet><MetadataString name="type" value="floorlight" containerField="value" /><MetadataFloat name="period" value="0.2" containerField="value" /><MetadataFloat name="phase" value="0.27272728" containerField="value" /><MetadataFloat name="initialColor" value="1 0 0" containerField="value" /><MetadataFloat name="finalColor" value="1 1 0" containerField="value" /></MetadataSet></Cylinder><Appearance><Material diffuseColor="0 0 0" /></Appearance> </Shape> </Transform>
+<Transform translation="0.47213602 0.04 52.60845"><Shape><Cylinder height="0.03" radius="1"><MetadataSet><MetadataString name="type" value="floorlight" containerField="value" /><MetadataFloat name="period" value="0.2" containerField="value" /><MetadataFloat name="phase" value="0.36363637" containerField="value" /><MetadataFloat name="initialColor" value="1 0 0" containerField="value" /><MetadataFloat name="finalColor" value="1 1 0" containerField="value" /></MetadataSet></Cylinder><Appearance><Material diffuseColor="0 0 0" /></Appearance> </Shape> </Transform>
+<Transform translation="-2.0 0.04 53.0"><Shape><Cylinder height="0.03" radius="1"><MetadataSet><MetadataString name="type" value="floorlight" containerField="value" /><MetadataFloat name="period" value="0.2" containerField="value" /><MetadataFloat name="phase" value="0.45454547" containerField="value" /><MetadataFloat name="initialColor" value="1 0 0" containerField="value" /><MetadataFloat name="finalColor" value="1 1 0" containerField="value" /></MetadataSet></Cylinder><Appearance><Material diffuseColor="0 0 0" /></Appearance> </Shape> </Transform>
+<Transform translation="-4.472136 0.04 52.60845"><Shape><Cylinder height="0.03" radius="1"><MetadataSet><MetadataString name="type" value="floorlight" containerField="value" /><MetadataFloat name="period" value="0.2" containerField="value" /><MetadataFloat name="phase" value="0.54545456" containerField="value" /><MetadataFloat name="initialColor" value="1 0 0" containerField="value" /><MetadataFloat name="finalColor" value="1 1 0" containerField="value" /></MetadataSet></Cylinder><Appearance><Material diffuseColor="0 0 0" /></Appearance> </Shape> </Transform>
+<Transform translation="-6.702282 0.04 51.472137"><Shape><Cylinder height="0.03" radius="1"><MetadataSet><MetadataString name="type" value="floorlight" containerField="value" /><MetadataFloat name="period" value="0.2" containerField="value" /><MetadataFloat name="phase" value="0.6363636" containerField="value" /><MetadataFloat name="initialColor" value="1 0 0" containerField="value" /><MetadataFloat name="finalColor" value="1 1 0" containerField="value" /></MetadataSet></Cylinder><Appearance><Material diffuseColor="0 0 0" /></Appearance> </Shape> </Transform>
+<Transform translation="-8.472136 0.04 49.702282"><Shape><Cylinder height="0.03" radius="1"><MetadataSet><MetadataString name="type" value="floorlight" containerField="value" /><MetadataFloat name="period" value="0.2" containerField="value" /><MetadataFloat name="phase" value="0.72727275" containerField="value" /><MetadataFloat name="initialColor" value="1 0 0" containerField="value" /><MetadataFloat name="finalColor" value="1 1 0" containerField="value" /></MetadataSet></Cylinder><Appearance><Material diffuseColor="0 0 0" /></Appearance> </Shape> </Transform>
+<Transform translation="-9.608452 0.04 47.472137"><Shape><Cylinder height="0.03" radius="1"><MetadataSet><MetadataString name="type" value="floorlight" containerField="value" /><MetadataFloat name="period" value="0.2" containerField="value" /><MetadataFloat name="phase" value="0.8181818" containerField="value" /><MetadataFloat name="initialColor" value="1 0 0" containerField="value" /><MetadataFloat name="finalColor" value="1 1 0" containerField="value" /></MetadataSet></Cylinder><Appearance><Material diffuseColor="0 0 0" /></Appearance> </Shape> </Transform>
+<Transform translation="-10.0 0.04 45.0"><Shape><Cylinder height="0.03" radius="1"><MetadataSet><MetadataString name="type" value="floorlight" containerField="value" /><MetadataFloat name="period" value="0.2" containerField="value" /><MetadataFloat name="phase" value="0.90909094" containerField="value" /><MetadataFloat name="initialColor" value="1 0 0" containerField="value" /><MetadataFloat name="finalColor" value="1 1 0" containerField="value" /></MetadataSet></Cylinder><Appearance><Material diffuseColor="0 0 0" /></Appearance> </Shape> </Transform>
+-->
+
+
+			<!-- Bumper rectangular derecho superior -->
+			<Transform scale="1 1 1" translation="18.2 1.5 0" rotation="0 1 0 1.1">
+				<Shape>
+					<Box size="25 4 1.5">
+						<MetadataSet>
+							<MetadataString name="type" value="bumper"
+								containerField="value" />
+							<MetadataFloat name="score" value="100"
+								containerField="value" />
+							<MetadataFloat name="intensity" value="0.3"
+								containerField="value" />
+							<MetadataString name="sound-collision" value="bumper2.wav"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="1 0.3 1" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Magnet izquierdo -->
+			<Transform scale="1 1 1" translation="-20 0.5 22">
+				<Shape>
+					<Cylinder radius="2.5" height="3">
+						<MetadataSet>
+							<MetadataString name="type" value="magnet"
+								containerField="value" />
+							<MetadataFloat name="charge" value="0.5"
+								containerField="value" />
+						</MetadataSet>
+					</Cylinder>
+					<Appearance>
+						<Material diffuseColor="0.3 0.3 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Bumper rectangular derecho inferior -->
+			<Transform scale="1 1 1" translation="19.3 1.5 15" rotation="0 1 0 -0.65">
+				<Shape>
+					<Box size="16 4 1.5">
+						<MetadataSet>
+							<MetadataString name="type" value="bumper"
+								containerField="value" />
+							<MetadataFloat name="score" value="100"
+								containerField="value" />
+							<MetadataFloat name="intensity" value="0.3"
+								containerField="value" />
+							<MetadataString name="sound-collision" value="bumper2.wav"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="1 0.3 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+
+			<!-- Bumper triangular inferior izquierdo -->
+			<Transform translation="-15.7 0 44.3" rotation="0 1 0 -1.10">
+				<Shape>
+					<Box size="17.5 6 1">
+						<MetadataSet>
+							<MetadataString name="type" value="bumper"
+								containerField="value" />
+							<MetadataFloat name="score" value="100"
+								containerField="value" />
+							<MetadataFloat name="intensity" value="0.5"
+								containerField="value" />
+							<MetadataString name="sound-collision" value="bumper2.wav"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="1 1 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Pared triangular del bumper inferior izquierdo -->
+			<Transform scale="1 1 1" translation="-20 0 46.5">
+				<Shape>
+					<TriangleSet solid="false" ccw="false"
+						containerField="geometry">
+						<Coordinate
+							point="0 0 0   0 0 -10 8 0 6  0 3 0   8 3 6  0 3 -10 
+							8 0 6   0 3 0 0 0 0  0 3 0  8 0 6   8 3 6 
+							0 0 0  0 3 0  0 0 -10  0 3 0  0 3 -10   0 0 -10 
+							8 0 6  0 0 -10  8 3 6  8 3 6   0 0 -10 0 3 -10 " />
+					</TriangleSet>
+					<MetadataSet>
+						<MetadataString name="type" value="wall"
+							containerField="value" />
+					</MetadataSet>
+
+					<Appearance>
+						<Material diffuseColor="1 1 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Bumper triangular inferior derecho -->
+			<Transform translation="12.6 0 44.4" rotation="0 1 0 4.24">
+				<Shape>
+					<Box size="17.6 6 1">
+						<MetadataSet>
+							<MetadataString name="type" value="bumper"
+								containerField="value" />
+							<MetadataFloat name="score" value="100"
+								containerField="value" />
+							<MetadataFloat name="intensity" value="0.5"
+								containerField="value" />
+							<MetadataString name="sound-collision" value="bumper2.wav"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="1 1 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+
+			<!-- Pared del bumper triangular inferior derecho -->
+			<Transform scale="1 1 1" translation="17 0 46.5">
+				<Shape>
+					<TriangleSet solid="false" ccw="false"
+						containerField="geometry">
+						<Coordinate
+							point="0 0 0  -8 0 6  0 0 -10  0 3 0  0 3 -10  -8 3 6  
+							-8 0 6  0 0 0  0 3 0  0 3 0  -8 3 6  -8 0 6  
+							0 0 0  0 0 -10  0 3 0  0 3 0  0 0 -10  0 3 -10  
+							-8 0 6  -8 3 6  0 0 -10  -8 3 6  0 3 -10  0 0 -10" />
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</TriangleSet>
+					<Appearance>
+						<Material diffuseColor="1 1 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Curva superior (semi-circunferencia en 4 partes) -->
+			<Transform scale="1 1 1" translation="9 0 -47.8">
+				<Shape>
+					<TriangleSet solid="false" ccw="false"
+						containerField="geometry">
+						<Coordinate
+							point="
+							19.9037 0 -1.96034 19.9037 3 -1.96034 19.6157 0 -3.90181 19.6157 0 -3.90181 19.9037 3 -1.96034 19.6157 3 -3.90181 19.9037 3 -1.96034 20 3 -20 19.6157 3 -3.90181 19.6157 0 -3.90181 19.6157 3 -3.90181 19.1388 0 -5.80569 19.1388 0 -5.80569 19.6157 3 -3.90181 19.1388 3 -5.80569 19.6157 3 -3.90181 20 3 -20 19.1388 3 -5.80569 19.1388 0 -5.80569 19.1388 3 -5.80569 18.4776 0 -7.65367 18.4776 0 -7.65367 19.1388 3 -5.80569 18.4776 3 -7.65367 19.1388 3 -5.80569 20 3 -20 18.4776 3 -7.65367 18.4776 0 -7.65367 18.4776 3 -7.65367 17.6384 0 -9.42793 17.6384 0 -9.42793 18.4776 3 -7.65367 17.6384 3 -9.42793 18.4776 3 -7.65367 20 3 -20 17.6384 3 -9.42793
+							17.6384 0 -9.42793 17.6384 3 -9.42793 16.6294 0 -11.1114 16.6294 0 -11.1114 17.6384 3 -9.42793 16.6294 3 -11.1114 17.6384 3 -9.42793 20 3 -20 16.6294 3 -11.1114 16.6294 0 -11.1114 16.6294 3 -11.1114 15.4602 0 -12.6879 15.4602 0 -12.6879 16.6294 3 -11.1114 15.4602 3 -12.6879 16.6294 3 -11.1114 20 3 -20 15.4602 3 -12.6879 15.4602 0 -12.6879 15.4602 3 -12.6879 14.1421 0 -14.1421 14.1421 0 -14.1421 15.4602 3 -12.6879 14.1421 3 -14.1421 15.4602 3 -12.6879 20 3 -20 14.1421 3 -14.1421 14.1421 0 -14.1421 14.1421 3 -14.1421 12.6879 0 -15.4602 12.6879 0 -15.4602 14.1421 3 -14.1421 12.6879 3 -15.4602 14.1421 3 -14.1421 20 3 -20 12.6879 3 -15.4602
+							" />
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</TriangleSet>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+			<Transform scale="1 1 1" translation="9 0 -47.8">
+				<Shape>
+					<TriangleSet solid="false" ccw="false"
+						containerField="geometry">
+						<Coordinate
+							point="
+							12.6879 0 -15.4602 12.6879 3 -15.4602 11.1114 0 -16.6294 11.1114 0 -16.6294 12.6879 3 -15.4602 11.1114 3 -16.6294 12.6879 3 -15.4602 20 3 -20 11.1114 3 -16.6294 11.1114 0 -16.6294 11.1114 3 -16.6294 9.42793 0 -17.6384 9.42793 0 -17.6384 11.1114 3 -16.6294 9.42793 3 -17.6384 11.1114 3 -16.6294 20 3 -20 9.42793 3 -17.6384 9.42793 0 -17.6384 9.42793 3 -17.6384 7.65367 0 -18.4776 7.65367 0 -18.4776 9.42793 3 -17.6384 7.65367 3 -18.4776 9.42793 3 -17.6384 20 3 -20 7.65367 3 -18.4776 7.65367 0 -18.4776 7.65367 3 -18.4776 5.80569 0 -19.1388 5.80569 0 -19.1388 7.65367 3 -18.4776 5.80569 3 -19.1388 7.65367 3 -18.4776 20 3 -20 5.80569 3 -19.1388
+							5.80569 0 -19.1388 5.80569 3 -19.1388 3.90181 0 -19.6157 3.90181 0 -19.6157 5.80569 3 -19.1388 3.90181 3 -19.6157 5.80569 3 -19.1388 20 3 -20 3.90181 3 -19.6157 3.90181 0 -19.6157 3.90181 3 -19.6157 1.96034 0 -19.9037 1.96034 0 -19.9037 3.90181 3 -19.6157 1.96034 3 -19.9037 3.90181 3 -19.6157 20 3 -20 1.96034 3 -19.9037 1.96034 0 -19.9037 1.96034 3 -19.9037 0 0 -20 0 0 -20 1.96034 3 -19.9037 0 3 -20 1.96034 3 -19.9037 20 3 -20 0 3 -20 0 0 -20 0 3 -20 -1.96034 0 -19.9037 -1.96034 0 -19.9037 0 3 -20 -1.96034 3 -19.9037 0 3 -20 -20 3 -20 -1.96034 3 -19.9037
+							" />
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</TriangleSet>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+			<Transform scale="1 1 1" translation="9 0 -47.8">
+				<Shape>
+					<TriangleSet solid="false" ccw="false"
+						containerField="geometry">
+						<Coordinate
+							point="
+							-1.96034 0 -19.9037 -1.96034 3 -19.9037 -3.90181 0 -19.6157 -3.90181 0 -19.6157 -1.96034 3 -19.9037 -3.90181 3 -19.6157 -1.96034 3 -19.9037 -20 3 -20 -3.90181 3 -19.6157 -3.90181 0 -19.6157 -3.90181 3 -19.6157 -5.80569 0 -19.1388 -5.80569 0 -19.1388 -3.90181 3 -19.6157 -5.80569 3 -19.1388 -3.90181 3 -19.6157 -20 3 -20 -5.80569 3 -19.1388 -5.80569 0 -19.1388 -5.80569 3 -19.1388 -7.65367 0 -18.4776 -7.65367 0 -18.4776 -5.80569 3 -19.1388 -7.65367 3 -18.4776 -5.80569 3 -19.1388 -20 3 -20 -7.65367 3 -18.4776 -7.65367 0 -18.4776 -7.65367 3 -18.4776 -9.42793 0 -17.6384 -9.42793 0 -17.6384 -7.65367 3 -18.4776 -9.42793 3 -17.6384 -7.65367 3 -18.4776 -20 3 -20 -9.42793 3 -17.6384
+							-9.42793 0 -17.6384 -9.42793 3 -17.6384 -11.1114 0 -16.6294 -11.1114 0 -16.6294 -9.42793 3 -17.6384 -11.1114 3 -16.6294 -9.42793 3 -17.6384 -20 3 -20 -11.1114 3 -16.6294 -11.1114 0 -16.6294 -11.1114 3 -16.6294 -12.6879 0 -15.4602 -12.6879 0 -15.4602 -11.1114 3 -16.6294 -12.6879 3 -15.4602 -11.1114 3 -16.6294 -20 3 -20 -12.6879 3 -15.4602 -12.6879 0 -15.4602 -12.6879 3 -15.4602 -14.1421 0 -14.1421 -14.1421 0 -14.1421 -12.6879 3 -15.4602 -14.1421 3 -14.1421 -12.6879 3 -15.4602 -20 3 -20 -14.1421 3 -14.1421 -14.1421 0 -14.1421 -14.1421 3 -14.1421 -15.4602 0 -12.6879 -15.4602 0 -12.6879 -14.1421 3 -14.1421 -15.4602 3 -12.6879 -14.1421 3 -14.1421 -20 3 -20 -15.4602 3 -12.6879 
+							" />
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</TriangleSet>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+			<Transform scale="1 1 1" translation="9 0 -47.8">
+				<Shape>
+					<TriangleSet solid="false" ccw="false"
+						containerField="geometry">
+						<Coordinate
+							point="
+							-15.4602 0 -12.6879 -15.4602 3 -12.6879 -16.6294 0 -11.1114 -16.6294 0 -11.1114 -15.4602 3 -12.6879 -16.6294 3 -11.1114 -15.4602 3 -12.6879 -20 3 -20 -16.6294 3 -11.1114 -16.6294 0 -11.1114 -16.6294 3 -11.1114 -17.6384 0 -9.42793 -17.6384 0 -9.42793 -16.6294 3 -11.1114 -17.6384 3 -9.42793 -16.6294 3 -11.1114 -20 3 -20 -17.6384 3 -9.42793 -17.6384 0 -9.42793 -17.6384 3 -9.42793 -18.4776 0 -7.65367 -18.4776 0 -7.65367 -17.6384 3 -9.42793 -18.4776 3 -7.65367 -17.6384 3 -9.42793 -20 3 -20 -18.4776 3 -7.65367 -18.4776 0 -7.65367 -18.4776 3 -7.65367 -19.1388 0 -5.80569 -19.1388 0 -5.80569 -18.4776 3 -7.65367 -19.1388 3 -5.80569 -18.4776 3 -7.65367 -20 3 -20 -19.1388 3 -5.80569
+							-19.1388 0 -5.80569 -19.1388 3 -5.80569 -19.6157 0 -3.90181 -19.6157 0 -3.90181 -19.1388 3 -5.80569 -19.6157 3 -3.90181 -19.1388 3 -5.80569 -20 3 -20 -19.6157 3 -3.90181 -19.6157 0 -3.90181 -19.6157 3 -3.90181 -19.9037 0 -1.96034 -19.9037 0 -1.96034 -19.6157 3 -3.90181 -19.9037 3 -1.96034 -19.6157 3 -3.90181 -20 3 -20 -19.9037 3 -1.96034 -19.9037 0 -1.96034 -19.9037 3 -1.96034 -20 0 0 -20 0 0 -19.9037 3 -1.96034 -20 3 0 -19.9037 3 -1.96034 -20 3 -20 -20 3 0 -20 0 0 -20 3 0 -19.9037 0 1.96034 -19.9037 0 1.96034 -20 3 0 -19.9037 3 1.96034 -20 3 0 -20 3 -20 -19.9037 3 1.96034
+							" />
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</TriangleSet>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Pared diagonal inferior izquierda -->
+			<Transform scale="1 1 1" translation="-29 0 70">
+				<Shape>
+					<TriangleSet solid="false" ccw="false"
+						containerField="geometry">
+						<Coordinate
+							point="0 0 0   0 0 -17  25 0 0  0 3 0   25 3 0  0 3 -17 
+							25 0 0   0 3 0  0 0 0  0 3 0  25 0 0   25 3 0 
+							0 0 0  0 3 0  0 0 -17  0 3 0  0 3 -17   0 0 -17 
+							25 0 0  0 0 -17 25 3 0  25 3 0   0 0 -17  0 3 -17 " />
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</TriangleSet>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Pared diagonal inferior derecha -->
+			<Transform scale="1 1 1" translation="26 0 70">
+				<Shape>
+					<TriangleSet solid="false" ccw="false"
+						containerField="geometry">
+						<Coordinate
+							point="0 0 0   -25 0 0  0 0 -17  
+							 0 3 0   0 3 -17  -25 3 0  
+							-25 0 0  0 0 0   0 3 0  
+							 0 3 0  -25 3 0  -25 0 0   
+							0 0 0  0 0 -17  0 3 0  
+							 0 3 0   0 0 -17  0 3 -17  
+							-25 0 0  -25 3 0  0 0 -17  
+							-25 3 0    0 3 -17  0 0 -17" />
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</TriangleSet>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+
+			<!-- Vidrio que tapa -->
+			<Transform translation="0 7 0">
+				<Shape>
+					<Box size="62 1 142">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="1 1 1"
+							transparency="0.9" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+
+
+			<!-- Rampa -->
+			<Transform translation="-18 1.5 -5" rotation="0 1 0 0.46">
+				<Transform rotation="1 0 0 0.11" >
+					<Shape>
+						<Box size="12.5 0.05 27" >
+							<MetadataSet>
+								<MetadataString name="type" value="ramp"
+									containerField="value" />
+							</MetadataSet>
+						</Box>
+						<Appearance>
+							<Material diffuseColor="0.7 0.6 0.3" />
+						</Appearance>
+					</Shape>
+				</Transform>
+			</Transform>	
+			
+			<!--  Plataforma de la rampa -->
+			<Transform scale="1 1 1" translation="-30 0 -45.8">
+				<Shape>
+					<TriangleSet solid="false" ccw="false"
+						containerField="geometry">
+						<Coordinate point="
+							0 3 -24  0 3 32.5  19.2 3 0  0 3 32.5  13 3 27  19.2 3 0
+							0 3 -24  19.2 3 0  19.2 3 -24  
+							" />
+
+						<MetadataSet>
+							<MetadataString name="type" value="ramp"
+								containerField="value" />
+						</MetadataSet>
+					</TriangleSet>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			<!-- Pared lateral de la rampa -->
+			<Transform translation="-14.5 3.5 -32" rotation="0 1 0 1.35">
+				<Shape>
+					<Box size="28 6 1">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+			<Transform translation="-11.5 3.5 -58">
+				<Shape>
+					<Box size="1 6 25">
+						<MetadataSet>
+							<MetadataString name="type" value="wall"
+								containerField="value" />
+						</MetadataSet>
+					</Box>
+					<Appearance>
+						<Material diffuseColor="0.7 0.6 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+
+			<!-- Bumpers en la plataforma -->
+			<Transform translation="-24 4 -30">
+				<Shape>
+					<Cylinder height="3" radius="2">
+						<MetadataSet>
+							<MetadataString name="type" value="bumper"
+								containerField="value" />
+							<MetadataFloat name="intensity" value="0.3"
+								containerField="value" />
+							<MetadataFloat name="score" value="500"
+								containerField="value" />
+							<MetadataString name="sound-collision" value="bumper1.wav"
+								containerField="value" />
+						</MetadataSet>
+					</Cylinder>
+					<Appearance>
+						<Material diffuseColor="0.3 0.9 0.9" />
+					</Appearance>
+				</Shape>
+			</Transform>
+			<Transform translation="-20 4 -48">
+				<Shape>
+					<Cylinder height="3" radius="2">
+						<MetadataSet>
+							<MetadataString name="type" value="bumper"
+								containerField="value" />
+							<MetadataFloat name="intensity" value="0.3"
+								containerField="value" />
+							<MetadataFloat name="score" value="500"
+								containerField="value" />
+							<MetadataString name="sound-collision" value="bumper1.wav"
+								containerField="value" />
+						</MetadataSet>
+					</Cylinder>
+					<Appearance>
+						<Material diffuseColor="0.9 0.3 0.9" />
+					</Appearance>
+				</Shape>
+			</Transform>
+			<Transform translation="-16 4 -60">
+				<Shape>
+					<Cylinder height="3" radius="2">
+						<MetadataSet>
+							<MetadataString name="type" value="bumper"
+								containerField="value" />
+							<MetadataFloat name="intensity" value="0.3"
+								containerField="value" />
+							<MetadataFloat name="score" value="500"
+								containerField="value" />
+							<MetadataString name="sound-collision" value="bumper1.wav"
+								containerField="value" />
+						</MetadataSet>
+					</Cylinder>
+					<Appearance>
+						<Material diffuseColor="0.9 0.9 0.3" />
+					</Appearance>
+				</Shape>
+			</Transform>
+
+			
+			<!-- Fin de la PinballTable -->
+		</Transform>
+
+		<!-- Las 4 patas de la mesa -->
+		<Transform translation="0.301 0.48 -0.3">
+			<Shape>
+				<Box size="0.02 0.96 0.02" />
+					<Appearance>
+						<Material diffuseColor="0.2 0.2 0.3" />
+					</Appearance>
+			</Shape>
+		</Transform>
+		<Transform translation="-0.301 0.48 -0.3">
+			<Shape>
+				<Box size="0.02 0.96 0.02" />
+					<Appearance>
+						<Material diffuseColor="0.2 0.2 0.3" />
+					</Appearance>
+			</Shape>
+		</Transform>
+		<Transform translation="0.301 0.55 -1.7">
+			<Shape>
+				<Box size="0.02 1.1 0.02" />
+					<Appearance>
+						<Material diffuseColor="0.2 0.2 0.3" />
+					</Appearance>
+			</Shape>
+		</Transform>
+		<Transform translation="-0.301 0.55 -1.7">
+			<Shape>
+				<Box size="0.02 1.1 0.02" />
+					<Appearance>
+						<Material diffuseColor="0.2 0.2 0.3" />
+					</Appearance>
+			</Shape>
+		</Transform>
+		
+		<!-- Caja debajo del tablero: frente, derecha, fondo, izquierda, abajo -->
+		<Transform translation="0 0.55 -0.3">
+			<Shape>
+				<TriangleSet solid="false" ccw="false" containerField="geometry">
+					<Coordinate point="-0.31 0 0  0.31 0 0  -0.31 0.4 0  -0.31 0.4 0  0.31 0 0  0.31 0.4 0" />
+					<TextureCoordinate point="0 0 1 0 0 1 0 1 1 0 1 1" />
+				</TriangleSet>
+				<Appearance>
+					<ImageTexture url="abstract1.jpg" />
+				</Appearance>
+			</Shape>
+			<Shape>
+				<TriangleSet solid="false" ccw="false" containerField="geometry">
+					<Coordinate point="
+					0.31 0 0  0.31 0 -1.4  0.31 0.55 -1.4  0.31 0.55 -1.4  0.31 0.4 0  0.31 0 0
+					" />
+					<TextureCoordinate point="0 0 0 1 1 1 1 1 1 0 0 0" />
+				</TriangleSet>
+				<Appearance>
+					<ImageTexture url="abstract3.jpg" />
+				</Appearance>
+			</Shape>
+			<Shape>
+				<TriangleSet solid="false" ccw="false" containerField="geometry">
+					<Coordinate point="
+					0.31 0 -1.4  -0.31 0 -1.4  0.31 0.55 -1.4  0.31 0.55 -1.4  -0.31 0 -1.4  -0.31 0.55 -1.4
+					" />
+					<TextureCoordinate point="0 0 1 0 0 1 0 1 1 0 1 1" />
+				</TriangleSet>
+				<Appearance>
+					<ImageTexture url="abstract6.jpg" />
+				</Appearance>
+			</Shape>
+			<Shape>
+				<TriangleSet solid="false" ccw="false" containerField="geometry">
+					<Coordinate point="
+					-0.31 0 0  -0.31 0.55 -1.4  -0.31 0 -1.4  -0.31 0.55 -1.4  -0.31 0 0  -0.31 0.4 0
+					" />
+					<TextureCoordinate point="0 0 1 1 0 1 1 1 0 0 1 0" />
+				</TriangleSet>
+					<Appearance>
+					<ImageTexture url="abstract5.jpg" />
+					</Appearance>
+			</Shape>
+			<Shape>
+				<TriangleSet solid="false" ccw="false" containerField="geometry">
+					<Coordinate point="
+					0.31 0 0  -0.31 0 0  0.31 0 -1.4  0.31 0 -1.4  -0.31 0 0  -0.31 0 -1.4  
+					" />
+					<TextureCoordinate point="0 0 1 0 0 1 0 1 1 0 1 1" />
+				</TriangleSet>
+					<Appearance>
+					<ImageTexture url="abstract7.jpg" />
+					</Appearance>
+			</Shape>
+		</Transform>
+		
+		<!-- Tablero de puntaje -->
+		<Transform translation="0 1.4 -1.71" >
+			<Shape>
+				<Box size="0.6 0.7 0.07">
+					<MetadataSet>
+						<MetadataString name="type" value="score"
+							containerField="value" />
+					</MetadataSet>
+				</Box>
+
+				<Appearance>
+					<Material diffuseColor="0.2 0.2 0.3" />
+				</Appearance>
+			</Shape>
+
+			<Transform scale="0.6 0.45 1" translation="-0.3 -0.1 0.036">
+				<Shape>
+					<TriangleSet solid="false" ccw="false" containerField="geometry">
+						<Coordinate point="0 0 0  1 0 0  0 1 0  1 0 0  1 1 0  0 1 0" />
+						<TextureCoordinate point="0 0  1 0  0 1  1 0  1 1  0 1" />
+					</TriangleSet>
+					<Appearance>
+						<ImageTexture url="itba_pinball.jpg" repeatS="true" repeatT="true"/>
+					</Appearance>
+				</Shape>
+			</Transform>
+
+		</Transform>
+
+	</Transform>
+		
+		
+		<!-- Pared del fondo -->
+		<Transform scale="5 2 1" translation="-2.5 0 -2">
+			<Shape>
+				<TriangleSet solid="false" ccw="false" containerField="geometry">
+					<Coordinate point="0 0 0  1 0 0  0 1 0  1 0 0  1 1 0  0 1 0" />
+					<TextureCoordinate point="0 10  10 10  0 0  10 10  10 0  0 0" />
+				</TriangleSet>
+				<Appearance>
+					<ImageTexture url="bricks.jpg" repeatS="true" repeatT="true"/>
+				</Appearance>
+			</Shape>
+		</Transform>
+
+		<!-- Pared de adelante -->
+		<Transform scale="5 2 1" translation="-2.5 0 2">
+			<Shape>
+				<TriangleSet solid="false" ccw="false" containerField="geometry">
+					<Coordinate point="0 0 0  1 0 0  0 1 0  1 0 0  1 1 0  0 1 0" />
+					<TextureCoordinate point="0 10  10 10  0 0  10 10  10 0  0 0" />
+				</TriangleSet>
+				<Appearance>
+					<ImageTexture url="bricks.jpg" repeatS="true" repeatT="true"/>
+				</Appearance>
+			</Shape>
+		</Transform>
+		
+		<!-- Pared izquierda -->
+		<Transform scale="1 2 4" translation="-2.5 0 -2">
+			<Shape>
+				<TriangleSet solid="false" ccw="false" containerField="geometry">
+					<Coordinate point="0 0 0  0 0 1  0 1 0  0 0 1  0 1 1  0 1 0" />
+					<TextureCoordinate point="0 10  10 10  0 0  10 10  10 0  0 0" />
+				</TriangleSet>
+				<Appearance>
+					<ImageTexture url="bricks.jpg" repeatS="true" repeatT="true"/>
+				</Appearance>
+			</Shape>
+		</Transform>
+		
+		<!-- Pared derecha -->
+		<Transform scale="1 2 4" translation="2.5 0 -2">
+			<Shape>
+				<TriangleSet solid="false" ccw="false" containerField="geometry">
+					<Coordinate point="0 0 0  0 0 1  0 1 0  0 0 1  0 1 1  0 1 0" />
+					<TextureCoordinate point="0 10  10 10  0 0  10 10  10 0  0 0" />
+				</TriangleSet>
+				<Appearance>
+					<ImageTexture url="bricks.jpg" repeatS="true" repeatT="true"/>
+				</Appearance>
+			</Shape>
+		</Transform>
+		
+		<!-- Piso -->
+		<Transform scale="5 0 4" translation="-2.5 0 -2">
+			<Shape>
+				<TriangleSet solid="false" ccw="false" containerField="geometry">
+					<Coordinate point="0 0 0  1 0 0  0 0 1  1 0 0  1 0 1  0 0 1" />
+					<TextureCoordinate point="0 5  5 5  0 0  5 5  5 0  0 0" />
+				</TriangleSet>
+				<Appearance>
+					<ImageTexture url="floor.jpg" repeatS="true" repeatT="true"/>
+				</Appearance>
+			</Shape>
+		</Transform>
+		
+		<!-- Techo -->
+		<Transform scale="5 0 4" translation="-2.5 2 -2">
+			<Shape>
+				<TriangleSet solid="false" ccw="false" containerField="geometry">
+					<Coordinate point="0 0 0  1 0 0  0 0 1  1 0 0  1 0 1  0 0 1" />
+					<TextureCoordinate point="0 10  10 10  0 0  10 10  10 0  0 0" />
+				</TriangleSet>
+				<Appearance>
+					<ImageTexture url="ceiling.jpg" repeatS="true" repeatT="true"/>
+				</Appearance>
+			</Shape>
+		</Transform>
+		
+		<!-- Cartel del ITBA -->
+		<Transform scale="1 0.48 1.2 " translation="-2.45 1.6 0.6" rotation="1 0 0 3.14159">
+			<Shape>
+				<TriangleSet solid="false" ccw="false" containerField="geometry">
+					<Coordinate point="0 0 0  0 0 1  0 1 0  0 0 1  0 1 1  0 1 0" />
+					<TextureCoordinate point="0 1  1 1  0 0  1 1  1 0  0 0" />
+				</TriangleSet>
+				<Appearance>
+					<ImageTexture url="itba.jpg" repeatS="true" repeatT="true"/>
+				</Appearance>
+			</Shape>
+		</Transform>
+
+		<!-- Cuadro de Luxo Jr. -->
+		<Transform translation="2.45 1 0">
+			<Shape>
+				<TriangleSet solid="false" ccw="false" containerField="geometry">
+					<Coordinate point="       0 0 0  0 0 1.12   0 0.83 0  0 0 1.12  0 0.83 1.12  0 0.83 0" />
+					<TextureCoordinate point="0 0    1 0        0 1       1 0       1 1          0 1" />
+				</TriangleSet>
+				<Appearance>
+					<ImageTexture url="luxo_jr.jpg" repeatS="true" repeatT="true"/>
+				</Appearance>
+			</Shape>
+		</Transform>
+
+	</Scene>
+</X3D>
